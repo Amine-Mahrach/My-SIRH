@@ -17,31 +17,22 @@ namespace API_MySIRH.Services
             this._mapper = mapper;
             this._collaborateurRepository = collaborateurRepository;
         }
-
-
-
         public async Task<CollaborateurDTO> AddCollaborateur(CollaborateurDTO collaborateur)
         {
             var returnedCollaborateur = await _collaborateurRepository.AddCollaborateur(_mapper.Map<Collaborateur>(collaborateur));
             return _mapper.Map<CollaborateurDTO>(returnedCollaborateur);
         }
 
-
-
         public Task DeleteCollaboratur(int id)
         {
             throw new NotImplementedException();
         }
-
-
 
         public async Task<CollaborateurDTO> GetCollaborateur(int id)
         {
             var result = await _collaborateurRepository.GetCollaborateur(id);
             return _mapper.Map<CollaborateurDTO>(result);
         }
-
-
 
         public async Task<IEnumerable<CollaborateurDTO>> GetCollaborateurs()
         {
